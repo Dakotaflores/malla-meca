@@ -1,0 +1,59 @@
+
+body {
+  font-family: sans-serif;
+  margin: 2rem;
+  background-color: #f9f9f9;
+  color: #333;
+}
+h1 {
+  text-align: center;
+}
+#malla {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.card {
+  border-radius: 8px;
+  padding: 1rem;
+  width: 250px;
+  background-color: #e0e0e0;
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.card.done {
+  text-decoration: line-through;
+  opacity: 1;
+  background-color: #c8e6c9;
+}
+.card.locked {
+  background-color: #eeeeee;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.card span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+.card[data-area="CB"] { background-color: #d0e6f7; }
+.card[data-area="SC"] { background-color: #e3d7f5; }
+.card[data-area="SE"] { background-color: #d8f5df; }
+.card[data-area="AC"] { background-color: #ffe0b2; }
+.card[data-area="FG"] { background-color: #e0e0e0; }
+
+.card::after {
+  content: attr(data-secret);
+  display: block;
+  font-size: 0.8rem;
+  color: #d81b60;
+  opacity: 0;
+  transition: opacity 0.5s;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.card:hover::after {
+  opacity: 1;
+}
